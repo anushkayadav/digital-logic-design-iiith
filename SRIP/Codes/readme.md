@@ -4,7 +4,7 @@
 
 Run index.html file for simulator
 
-For the detailed instructions to run the simulator, check [About](https://github.com/anushkayadav/vlsi-iiith/blob/master/SRIP/Codes/About.txt) Page
+For the detailed instructions to run the simulator, check [About](https://github.com/anushkayadav/digital-logic-design-iiith/blob/master/SRIP/Codes/About.md) Page
 
 ### Simulator Files:
 
