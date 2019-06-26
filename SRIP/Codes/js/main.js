@@ -815,6 +815,7 @@ $("#load_siso").click(function(event) {
 	sessionStorage.removeItem("sipo");
 	sessionStorage.removeItem("piso");
 	sessionStorage.removeItem("pipo");
+	sessionStorage.removeItem("bi-shift");
 
 
 	location.reload();
@@ -825,6 +826,7 @@ $("#load_sipo").click(function(event) {
 	sessionStorage.removeItem("siso");
 	sessionStorage.removeItem("piso");
 	sessionStorage.removeItem("pipo");
+	sessionStorage.removeItem("bi-shift");
 
 	location.reload();
 });
@@ -835,6 +837,7 @@ $("#load_piso").click(function(event) {
 	sessionStorage.removeItem("siso");
 	sessionStorage.removeItem("sipo");
 	sessionStorage.removeItem("pipo");
+	sessionStorage.removeItem("bi-shift");
 	location.reload();
 });
 
@@ -844,6 +847,8 @@ $("#load_pipo").click(function(event) {
 	sessionStorage.removeItem("siso");
 	sessionStorage.removeItem("sipo");
 	sessionStorage.removeItem("piso");
+	sessionStorage.removeItem("bi-shift");
+
 	location.reload();
 });
 

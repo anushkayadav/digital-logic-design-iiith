@@ -1,85 +1,68 @@
-# Documentation for SRIP PROJECT - Delay Estimation of Chain of Inverters
+# Documentation for SRIP PROJECT - REGISTERS
 
 ### Introduction: 
 
-Common challenges that chip designers face is that how large should be the transistors and how many stages of logic can give least delay. In other words how to optimize gate size to minimize the delay of a logic path.
+This module explains about how to build registers which are the units of memory storage in computers. In computer architecture, a processor register is a small amount of storage available as part of a CPU or other digital processor. Such registers are (typically) addressed by other mechanisms than main memory and can be accessed more quickly. Almost all computers, load-store architecture or not, load data from a larger memory into registers where it is used for arithmetic, manipulated, or tested, by some machine instruction. Manipulated data is then often stored back in main memory, either by the same instruction or a subsequent one.
 
 
-The method of logical effort is one of the methods used to estimate delay in a CMOS circuit. The model describes delay caused by the capacitive load that the logic gate drives and by the topology of the logic gate. As the gate increases delay also increases, but delay depends on the logic function of the gate also.
-
----
-
-### Delay in a Logic Circuit
-
-Gate delay can be estimated from following formula.
-
-D= p + h
-
-Where, p is an intrinsic delay
-               h is an effort delay
-
-Effort delay is a product of logical effort and electrical effort. 
-
-h= g x f
-
-where, g is logical effort which is a ratio of gate inputâ€™s capacitance to the inverter capacitance when sized to deliver the same current and f is an electrical effort (f= Cout/Cin) which is a function of load/gate size. Logical effort of an inverter is 1.
-
-#### In this experiment, it will be learnt how a delay can be reduced by changing the gate size of an inverter. The following figure shows what actually is meant by delay here
-
-![Image](http://cse14-iiith.vlabs.ac.in/final-build/dintro.jpg)
 
 ---
 
-### Delay Estimation In Chain Of Inverters
+#### SISO- Serial In Serial Out
 
-In this experiment, our goal is to calculate the propagation delay when some load is driven by a chain of inverters. To start with, let us consider simple case of a single inverter driving a capacitative load CL as shown in the following figure
+The shift register, which allows serial input (one bit after the other through a single data line) and produces a serial output is known as Serial-In Serial-Out shift register. Since there is only one output, the data leaves the shift register one bit at a time in a serial pattern, thus the name Serial-In Serial-Out Shift Register.
 
-![Image](http://cse14-iiith.vlabs.ac.in/final-build/t51.jpg)
+The logic circuit given below shows a serial-in serial-out shift register. The circuit consists of four D flip-flops which are connected in a serial manner. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip flop.
 
-Now we want to optimize size of the inverter, x, when driven by a source resistance Rs and driving a load of CL .
-
-
-To drive CL fastly, we can make inverter size very large but then Rs will become very slow while driving such large size inverter as its input capacitance will be very large on increasing size by large amount.
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop.png)
 
 
-If we reduce the size of an inverter and make it very small such that Rs drive it very quickly, then the delay to drive load capacitance will increase. So there is an optimal point in between these two conditions and we will see that optimal point further in this section
+#### SIPO- Serial In Parallel Out
 
+The shift register, which allows serial input (one bit after the other through a single data line) and produces a parallel output is known as Serial-In Parallel-Out shift register.
 
-One thing that should be remebered is the effect of scaling of size of an inverter on its resistance and capacitance value. Suppose the size of an inverter has been scaled by a factor x, then its resistance will get reduced by the same factor while its capacitance will be increased by the same factor.
+The logic circuit given below shows a serial-in-parallel-out shift register. The circuit consists of four D flip-flops which are connected. The clear (CLR) signal is connected in addition to the clock signal to all the 4 flip flops in order to RESET them. The output of the first flip flop is connected to the input of the next flip flop and so on. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip flop.
 
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop1.png)
 
-For getting optimum size of inverter, we differentiate the delay with respect to size. And when we put that value of size in the expressions of delay at the input of an inverter and delay in output, we get the same expressions. So we can summarize the optimal result for the above figure as below:
+#### PISO-  Parallel In Serial Out
 
+TThe shift register, which allows parallel input (data is given separately to each flip flop and in a simultaneous manner) and produces a serial output is known as Parallel-In Serial-Out shift register.
 
-An inverter is scaled for optimium delay when the RC product of its input capacitance and the external resistance driving it, equals the RC product of its output resistance and the external load that it drives.
+The logic circuit given below shows a parallel-in-serial-out shift register. The circuit consists of four D flip-flops which are connected. The clock input is directly connected to all the flip flops but the input data is connected individually to each flip flop through a multiplexer at the input of every flip flop. The output of the previous flip flop and parallel data input are connected to the input of the MUX and the output of MUX is connected to the next flip flop. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip flop.
 
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/FIL.jpg)
 
-Now we will extend this concept for a chain of inverters as shown below
-![Image](http://cse14-iiith.vlabs.ac.in/final-build/t53.jpg)
+#### PIPO- Parallel In Parallel Out
 
-As we have seen earlier that to minimize delay, the RC product at input and output of an inverter should be same. Similar is the case with chain of inverters. Therefor the optimum size of each inverter is the geometric mean of its neighbors - meaning that if each inverter is sized up by the same factor x with respect to the preceding inverter, it will have the same effective RC product and hence the same delay.
+The shift register, which allows parallel input (data is given separately to each flip flop and in a simultaneous manner) and also produces a parallel output is known as Parallel-In parallel-Out shift register.
 
-Now we just have to see what is the value of x. The value of x derived by differentiating delay expression is nth root of CL/Cg1 where
+The logic circuit given below shows a parallel-in-parallel-out shift register. The circuit consists of four D flip-flops which are connected. The clear (CLR) signal and clock signals are connected to all the 4 flip flops. In this type of register, there are no interconnections between the individual flip-flops since no serial shifting of the data is required. Data is given as input separately for each flip flop and in the same way, output also collected individually from each flip flop.of the next flip flop and so on. All these flip-flops are synchronous with each other since the same clock signal is applied to each flip flop.
 
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop2.png)
 
-     n is equal to the number of inverters in the chain 
-     CL is equal to the load capacitance
-     Cg1 is equal to the input gate capacitance of the first inverter
-So expression for x is shown below
+#### Bidirectonal Shift Registers
 
-![Image](http://cse14-iiith.vlabs.ac.in/final-build/t54.jpg)
+If we shift a binary number to the left by one position, it is equivalent to multiplying the number by 2 and if we shift a binary number to the right by one position, it is equivalent to dividing the number by 2.To perform these operations we need a register which can shift the data in either direction.
+
+Bidirectional shift registers are the registers which are capable of shifting the data either right or left depending on the mode selected. If the mode selected is 1(high), the data will be shifted towards the right direction and if the mode selected is 0(low), the data will be shifted towards the left direction.
+
+The logic circuit given below shows a Bidirectional shift register. The circuit consists of four D flip-flops which are connected. The input data is connected at two ends of the circuit and depending on the mode selected only one and gate is in the active state.
+
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/Fil.jpg)
+
 
 
 
 ## Objective:
 
-To study the effect of gate sizing in chain of inverters on its output delay.
+- The objective of this experiment is to understand the working of the Shift Registers.
+- Try to make basic Shift Register and Parallel Shift Register.
 
 ## Procedure:
 
-1. With The help of [About](https://github.com/anushkayadav/vlsi-iiith/blob/master/SRIP/Codes/About.txt) Page , try to build the Circuit.
+1. With The help of [About](https://github.com/anushkayadav/digital-logic-design-iiith/blob/master/SRIP/Codes/About.md) Page , try to build the Circuit.
 2. Simulate and analyse the graph.
-
 
 # Technical Details:
 
@@ -91,49 +74,69 @@ To study the effect of gate sizing in chain of inverters on its output delay.
 ## Libraries Used:
 1. [Bootstrap](https://getbootstrap.com/) 
 2. [jQuery](https://jquery.com/)
-3.  [Popper.js](https://popper.js.org/)
+
+## Module Used
+1. [Simcir](https://kazuhikoarase.github.io/simcirjs/)
+[github link](https://github.com/kazuhikoarase/simcirjs)
 
 ## Implementation:
 
+### The simcir module
+
+The simcir module basically searches for a div with class named "simcir". It reads the json data inside that div, and transforms it into a live simulation. 
+
+The json data contains the following things:
+1. width(integer)- width of the simulator on the screen in px
+2. height(integer)- height of the simulator in px
+3. showToolbox(boolean)- decides if the toolbox(the left panel) is to be displayed or not.
+4. toolbox(array)- items/tools to be shown in toolbox
+5. devices(array)- devices to be displayed on the breadboard
+6. connectors(array)- connections between the simulated tools/items.
+
+### Overview
+
+More circuits/tools have been added to the simulation, and premade circuit data is created to load the counters with the click of a button.
+
 ### Files
 
-#### index.html
+#### end.js
 
 ##### Overview:
-html page of the module.
-
-Layout is divided into 4 parts.
-
-Part 1 : Tools with Simulate , Help and Reset buttons.
-
-Part 2 : Drop Zone , this is where the components will dropped and connected.
-
-Part 3 : Graph Area, this is where the graph will displayed after validatinf the circuit on clicking "Simulate" button.
-
-Part 4 : Count Badges , these are the counts of various connections in the circuit.
+Added more functionality to the existing module.
 
 ##### Technicalities
-Used html and bootstrap to design the layout of the simulator.
+1. used the function registerDevice() which is defined in the module simcir to add more items/tools that are required by the simulation
+2. it's named end.js because it has to be run in the end, after all the js files, because it uses variables from the simcir module's js files
+
+following modules are constructed in this file-
+		SISO 3-Register
+		SIPO 3-Register
+		PISO 3-Register
+		PIPO 3-Register
 
 #### main.js
 
 ##### Overview:
-This file manages all the local variables and functions that will be called on pressing various buttons in the simulator.
+This file manages all the local variables and remembers the settings to be applied on refreshes of the page.
 
 ##### Technicalities:
-
-1. input() : Function to add Input terminal (grey) to all the dropped components.
-
-2. output() : Function to add Output terminal (green) to all the dropped components.
-
-3. interact(): Fucntion to make connections between various components.
-
-4. renderDiagram(): Function which drops the Components from tool box to Drop Zone.
-
-5. $( ".button" ).click(function() : Function to Reset the simulator to initial conditions.
-
-6. $( ".simulate" ).click(function() : Function to validate the circuit and display graph.
-
+1. Made the width of the simulator dynamic by using the screen size of the pc which is running the simulation to utilize maximum width possible without scrolling
+2. This file uses 'sessionStorage' variables(which uses key value pairs to store data), which remain as long as the tab is open, and do not clear on page refreshes. These variables are used to store the settings of the user.
+3. Since the simcir library uses the json data provided at the start, and then replaces it by the simulation, we need to refresh the page and set new json data in the 'simcir' div.
+4. Different settings are stored in different key-value pairs in sessionStorage.
+	* 'OSCfreq' - The frequency of OSC
+	* 'siso_module' - Checkbox of SISO 3-Register module
+	* 'sipo_module' - Checkbox of SIPO 3-Register module 
+	* 'piso_module' - Checkbox of PISO 3-Register module 
+	* 'pipo_module' - Checkbox of PIPO 3-Register module  
+	* 'siso' - Is true if the button "Load SISO" is clicked
+	* 'sipo' - Is true if the button "Load SISO" is clicked
+	* 'piso' - Is true if the button "Load SISO" is clicked
+	* 'pipo' - Is true if the button "Load SISO" is clicked
+	* 'bi-shift' - Is true if the button "Load Bidirectional Shift REG" is clicked
+	
+5. The program first checks if there should be any circuit preloaded. If yes, then it checks all the settings and sets them up accordingly. If no, then it loads a blank simulation with the settings applied.
+6. The file also handles all the click events on the webpage to make the buttons interactable
 
 
 
