@@ -1,6 +1,6 @@
 // this file is to be executed in the end, because the functions and variables used are declared in the library simcir files
 
-// This D-FF-custom is made by me which has additional preset and clear feature required to make the ring counter
+// This is the SISO module  by me
 simcir.registerDevice("SISO 3-Register",
 {
 	"width":520,
@@ -31,6 +31,9 @@ simcir.registerDevice("SISO 3-Register",
 }
 );
 
+
+
+// This is the SIPO module  by me
 simcir.registerDevice("SIPO 3-Register",
 {
     "width":520,
@@ -64,6 +67,7 @@ simcir.registerDevice("SIPO 3-Register",
 );
 
 
+// This is the PISO module  by me
 simcir.registerDevice("PISO 3-Register",
 {
     "width":520,
@@ -126,6 +130,7 @@ simcir.registerDevice("PISO 3-Register",
 );
 
 
+// This is the PIPO module  by me
 simcir.registerDevice("PIPO 3-Register",
 {
     "width":520,

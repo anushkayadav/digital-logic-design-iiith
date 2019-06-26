@@ -5,7 +5,7 @@ var x=$(".simcir_outer_div").width();
 x=x*0.90;
 
 //the if else block decides which circuit to display according to user settings
-if(sessionStorage.getItem("8bitCounter"))
+if(sessionStorage.getItem("siso"))
 {
 	var counter={
 		"width":x,
@@ -15,27 +15,11 @@ if(sessionStorage.getItem("8bitCounter"))
     {"type":"In"},
     {"type":"Out"},
     {"type":"Joint"},
-
     {"type":"DC"},
-
-
-
-
-    {"type":"NOT"},
-    
-    {"type":"NAND"},
-
-    {"type":"NOR"},
-
     {"type":"OSC"},
-
-    {"type":"T-FF"},
     {"type":"D-FF"},
     {"type":"8bitCounter"},
-
-
     {"type":"NumSrc"},
-    
     {"type":"DSO"}
   ],
  "devices":[
@@ -91,23 +75,39 @@ if(sessionStorage.getItem("8bitCounter"))
 	if(sessionStorage.getItem("OSCfreq"))
 	{
 		$("#freq").val(sessionStorage.getItem("OSCfreq"));
-		counter.toolbox[5]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
-		counter.devices[17]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.toolbox[4]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.devices[18]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
 	}
 	
-	if(sessionStorage.getItem("8bitCounter_module"))
+	if(sessionStorage.getItem("siso_module"))
 	{
-		$("#counter").attr("checked", true);
+		$("#sisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8bitCounter"
+			"type":"SISO 3-Register"
 		});
 	}
 
-	if(sessionStorage.getItem("8bitRingCounter_module"))
+	if(sessionStorage.getItem("piso_module"))
 	{
-		$("#ringcounter").attr("checked", true);
+		$("#pisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8BitRingCounter"
+			"type":"PISO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("pipo_module"))
+	{
+		$("#pipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"PIPO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("sipo_module"))
+	{
+		$("#sipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"SIPO 3-Register"
 		});
 	}
 	//set all the settings as string inside div
@@ -117,7 +117,7 @@ if(sessionStorage.getItem("8bitCounter"))
 
 }
 
-else if(sessionStorage.getItem("8bitRingCounter")){
+else if(sessionStorage.getItem("sipo")){
 	var counter={
 		"width":x,
 		"height":800,
@@ -217,25 +217,43 @@ else if(sessionStorage.getItem("8bitRingCounter")){
 	if(sessionStorage.getItem("OSCfreq"))
 	{
 		$("#freq").val(sessionStorage.getItem("OSCfreq"));
-		counter.toolbox[5]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
-		counter.devices[6]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.toolbox[7]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.devices[11]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
 	}
 	
-	if(sessionStorage.getItem("8bitCounter_module"))
+	if(sessionStorage.getItem("siso_module"))
 	{
-		$("#counter").attr("checked", true);
+		$("#sisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8bitCounter"
+			"type":"SISO 3-Register"
 		});
 	}
 
-	if(sessionStorage.getItem("8bitRingCounter_module"))
+	if(sessionStorage.getItem("piso_module"))
 	{
-		$("#ringcounter").attr("checked", true);
+		$("#pisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8BitRingCounter"
+			"type":"PISO 3-Register"
 		});
 	}
+
+	if(sessionStorage.getItem("pipo_module"))
+	{
+		$("#pipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"PIPO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("sipo_module"))
+	{
+		$("#sipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"SIPO 3-Register"
+		});
+	}
+
+
 	var html1=JSON.stringify(counter);
 	document.querySelector(".simcir").innerHTML=html1;
 	document.querySelector(".simcir").classList.add("unclickable");
@@ -335,23 +353,39 @@ else if(sessionStorage.getItem("piso")){
 	if(sessionStorage.getItem("OSCfreq"))
 	{
 		$("#freq").val(sessionStorage.getItem("OSCfreq"));
-		counter.toolbox[5]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
-		counter.devices[6]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.toolbox[9]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.devices[0]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
 	}
 	
-	if(sessionStorage.getItem("8bitCounter_module"))
+	if(sessionStorage.getItem("siso_module"))
 	{
-		$("#counter").attr("checked", true);
+		$("#sisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8bitCounter"
+			"type":"SISO 3-Register"
 		});
 	}
 
-	if(sessionStorage.getItem("8bitRingCounter_module"))
+	if(sessionStorage.getItem("piso_module"))
 	{
-		$("#ringcounter").attr("checked", true);
+		$("#pisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8BitRingCounter"
+			"type":"PISO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("pipo_module"))
+	{
+		$("#pipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"PIPO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("sipo_module"))
+	{
+		$("#sipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"SIPO 3-Register"
 		});
 	}
 	var html1=JSON.stringify(counter);
@@ -432,23 +466,212 @@ else if(sessionStorage.getItem("pipo")){
 	if(sessionStorage.getItem("OSCfreq"))
 	{
 		$("#freq").val(sessionStorage.getItem("OSCfreq"));
-		counter.toolbox[5]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
-		counter.devices[6]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.toolbox[4]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.devices[5]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
 	}
 	
-	if(sessionStorage.getItem("8bitCounter_module"))
+	if(sessionStorage.getItem("siso_module"))
 	{
-		$("#counter").attr("checked", true);
+		$("#sisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8bitCounter"
+			"type":"SISO 3-Register"
 		});
 	}
 
-	if(sessionStorage.getItem("8bitRingCounter_module"))
+	if(sessionStorage.getItem("piso_module"))
 	{
-		$("#ringcounter").attr("checked", true);
+		$("#pisomod").attr("checked", true);
 		counter.toolbox.push({
-			"type":"8BitRingCounter"
+			"type":"PISO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("pipo_module"))
+	{
+		$("#pipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"PIPO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("sipo_module"))
+	{
+		$("#sipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"SIPO 3-Register"
+		});
+	}
+	var html1=JSON.stringify(counter);
+	document.querySelector(".simcir").innerHTML=html1;
+	document.querySelector(".simcir").classList.add("unclickable");
+}
+
+else if(sessionStorage.getItem("bi-shift")){
+	var counter={
+		"width":x,
+		"height":800,
+		"showToolbox":true,
+  "toolbox":[
+    {"type":"In"},
+    {"type":"Out"},
+    {"type":"DC"},
+    {"type":"NOT"},
+    {"type":"NAND"},
+    {"type":"NOR"},
+    {"type":"OSC"},
+    {"type":"Joint"},
+    {"type":"AND"},
+    {"type":"OR"},
+    {"type":"T-FF"},
+    {"type":"D-FF"},
+    {"type":"8bitCounter"},
+    {"type":"NumSrc"},
+    {"type":"DSO"}
+  ],
+  "devices":[
+    {"type":"DC","id":"dev0","x":0,"y":160,"label":"DC"},
+    {"type":"AND","id":"dev1","x":128,"y":184,"label":"AND"},
+    {"type":"OR","id":"dev2","x":168,"y":168,"label":"OR"},
+    {"type":"OR","id":"dev3","x":320,"y":168,"label":"OR"},
+    {"type":"AND","id":"dev4","x":432,"y":144,"label":"AND"},
+    {"type":"OR","id":"dev5","x":480,"y":160,"label":"OR"},
+    {"type":"AND","id":"dev6","x":616,"y":144,"label":"AND"},
+    {"type":"AND","id":"dev7","x":616,"y":176,"label":"AND"},
+    {"type":"OR","id":"dev8","x":656,"y":160,"label":"OR"},
+    {"type":"D-FF","id":"dev9","x":512,"y":352,"label":"D-FF"},
+    {"type":"D-FF","id":"dev10","x":352,"y":352,"label":"D-FF"},
+    {"type":"NOT","id":"dev11","x":48,"y":64,"label":"NOT"},
+    {"type":"Joint","id":"dev12","x":104,"y":72,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev13","x":240,"y":72,"label":"Joint","state":{"direction":0}},
+    {"type":"NumSrc","id":"dev14","x":8,"y":72,"label":"NumSrc","state":{"direction":0,"on":true}},
+    {"type":"Joint","id":"dev15","x":32,"y":112,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev16","x":88,"y":112,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev17","x":224,"y":112,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev18","x":384,"y":112,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev19","x":552,"y":112,"label":"Joint","state":{"direction":0}},
+    {"type":"AND","id":"dev20","x":280,"y":152,"label":"AND"},
+    {"type":"AND","id":"dev21","x":280,"y":184,"label":"AND"},
+    {"type":"Joint","id":"dev22","x":400,"y":72,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev23","x":568,"y":72,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev24","x":96,"y":440,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev25","x":576,"y":440,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev26","x":584,"y":144,"label":"Joint","state":{"direction":0}},
+    {"type":"D-FF","id":"dev27","x":200,"y":368,"label":"D-FF"},
+    {"type":"Joint","id":"dev28","x":280,"y":368,"label":"Joint","state":{"direction":0}},
+    {"type":"AND","id":"dev29","x":432,"y":176,"label":"AND"},
+    {"type":"AND","id":"dev30","x":128,"y":144,"label":"AND"},
+    {"type":"D-FF","id":"dev31","x":672,"y":344,"label":"D-FF"},
+    {"type":"In","id":"dev32","x":48,"y":472,"label":"In"},
+    {"type":"OSC","id":"dev33","x":0,"y":296,"label":"OSC"},
+    {"type":"Joint","id":"dev34","x":352,"y":480,"label":"Joint","state":{"direction":0}},
+    {"type":"Out","id":"dev35","x":304,"y":520,"label":"Out"},
+    {"type":"Out","id":"dev36","x":704,"y":512,"label":"Out"},
+    {"type":"Joint","id":"dev37","x":504,"y":480,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev38","x":616,"y":480,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev39","x":184,"y":480,"label":"Joint","state":{"direction":0}},
+    {"type":"Joint","id":"dev40","x":752,"y":312,"label":"Joint","state":{"direction":0}},
+    {"type":"8bitCounter","id":"dev41","x":24,"y":176,"label":"8bitCounter"},
+    {"type":"Joint","id":"dev42","x":752,"y":136,"label":"Joint","state":{"direction":2}},
+    {"type":"DSO","id":"dev43","x":424,"y":592,"label":"DSO","state":{"playing":true,"rangeIndex":0}}
+  ],
+  "connectors":[
+    {"from":"dev1.in0","to":"dev16.out0"},
+    {"from":"dev1.in1","to":"dev41.out2"},
+    {"from":"dev2.in0","to":"dev30.out0"},
+    {"from":"dev2.in1","to":"dev1.out0"},
+    {"from":"dev3.in0","to":"dev20.out0"},
+    {"from":"dev3.in1","to":"dev21.out0"},
+    {"from":"dev4.in0","to":"dev42.out0"},
+    {"from":"dev4.in1","to":"dev22.out0"},
+    {"from":"dev5.in0","to":"dev4.out0"},
+    {"from":"dev5.in1","to":"dev29.out0"},
+    {"from":"dev6.in0","to":"dev26.out0"},
+    {"from":"dev6.in1","to":"dev23.out0"},
+    {"from":"dev7.in0","to":"dev19.out0"},
+    {"from":"dev7.in1","to":"dev9.out0"},
+    {"from":"dev8.in0","to":"dev6.out0"},
+    {"from":"dev8.in1","to":"dev7.out0"},
+    {"from":"dev9.in0","to":"dev5.out0"},
+    {"from":"dev9.in1","to":"dev37.out0"},
+    {"from":"dev10.in0","to":"dev3.out0"},
+    {"from":"dev10.in1","to":"dev34.out0"},
+    {"from":"dev11.in0","to":"dev14.out0"},
+    {"from":"dev12.in0","to":"dev11.out0"},
+    {"from":"dev13.in0","to":"dev12.out0"},
+    {"from":"dev15.in0","to":"dev14.out0"},
+    {"from":"dev16.in0","to":"dev15.out0"},
+    {"from":"dev17.in0","to":"dev16.out0"},
+    {"from":"dev18.in0","to":"dev17.out0"},
+    {"from":"dev19.in0","to":"dev18.out0"},
+    {"from":"dev20.in0","to":"dev9.out0"},
+    {"from":"dev20.in1","to":"dev13.out0"},
+    {"from":"dev21.in0","to":"dev17.out0"},
+    {"from":"dev21.in1","to":"dev28.out0"},
+    {"from":"dev22.in0","to":"dev13.out0"},
+    {"from":"dev23.in0","to":"dev22.out0"},
+    {"from":"dev24.in0","to":"dev41.out2"},
+    {"from":"dev25.in0","to":"dev24.out0"},
+    {"from":"dev26.in0","to":"dev25.out0"},
+    {"from":"dev27.in0","to":"dev2.out0"},
+    {"from":"dev27.in1","to":"dev39.out0"},
+    {"from":"dev28.in0","to":"dev27.out0"},
+    {"from":"dev29.in0","to":"dev18.out0"},
+    {"from":"dev29.in1","to":"dev10.out0"},
+    {"from":"dev30.in0","to":"dev10.out0"},
+    {"from":"dev30.in1","to":"dev12.out0"},
+    {"from":"dev31.in0","to":"dev8.out0"},
+    {"from":"dev31.in1","to":"dev38.out0"},
+    {"from":"dev32.in0","to":"dev33.out0"},
+    {"from":"dev34.in0","to":"dev39.out0"},
+    {"from":"dev35.in0","to":"dev28.out0"},
+    {"from":"dev36.in0","to":"dev40.out0"},
+    {"from":"dev37.in0","to":"dev34.out0"},
+    {"from":"dev38.in0","to":"dev37.out0"},
+    {"from":"dev39.in0","to":"dev32.out0"},
+    {"from":"dev40.in0","to":"dev31.out0"},
+    {"from":"dev41.in0","to":"dev0.out0"},
+    {"from":"dev41.in1","to":"dev33.out0"},
+    {"from":"dev42.in0","to":"dev40.out0"},
+    {"from":"dev43.in0","to":"dev36.out0"},
+    {"from":"dev43.in1","to":"dev41.out2"}
+  ]
+	};
+	if(sessionStorage.getItem("OSCfreq"))
+	{
+		$("#freq").val(sessionStorage.getItem("OSCfreq"));
+		counter.toolbox[6]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		counter.devices[33]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+	}
+	
+	if(sessionStorage.getItem("siso_module"))
+	{
+		$("#sisomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"SISO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("piso_module"))
+	{
+		$("#pisomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"PISO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("pipo_module"))
+	{
+		$("#pipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"PIPO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("sipo_module"))
+	{
+		$("#sipomod").attr("checked", true);
+		counter.toolbox.push({
+			"type":"SIPO 3-Register"
 		});
 	}
 	var html1=JSON.stringify(counter);
@@ -457,46 +680,32 @@ else if(sessionStorage.getItem("pipo")){
 }
 
 
-
 else{
 	var obj={
 		"width":x,
 		"height":800,
 		"showToolbox":true,
 		"toolbox":[
-		    {"type":"In"},
-    {"type":"Out"},
-
-    {"type":"DC"},
-
-
-
-
-    {"type":"NOT"},
-    
-    {"type":"NAND"},
-
-    {"type":"NOR"},
-
-    {"type":"OSC"},
-
-    {"type":"T-FF"},
-    {"type":"D-FF"},
-    {"type":"8bitCounter"},
-    {"type":"SISO 3-Register"},
-    {"type":"SIPO 3-Register"},
-    {"type":"PISO 3-Register"},
-    {"type":"PIPO 3-Register"},
-
-
-
-
-    {"type":"NumSrc"},
-    
-    {"type":"DSO"}
+		{"type":"In"},
+    	{"type":"Out"},
+    	{"type":"DC"},
+    	{"type":"NOT"},
+    	{"type":"NAND"},
+		{"type":"NOR"},
+		{"type":"OSC"},
+		{"type":"Joint"},
+		{"type":"AND"},
+		{"type":"OR"},
+		{"type":"T-FF"},
+    	{"type":"D-FF"},
+    	{"type":"8bitCounter"},
+		{"type":"NumSrc"},
+		{"type":"DSO"}
 		],
+
 		"devices":[
 		],
+
 		"connectors":[
 		]
 	};
@@ -504,25 +713,42 @@ else{
 	if(sessionStorage.getItem("OSCfreq"))
 	{
 		$("#freq").val(sessionStorage.getItem("OSCfreq"));
-		obj.toolbox[5]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
+		obj.toolbox[6]["freq"]=parseInt(sessionStorage.getItem("OSCfreq"),10);
 	}
 	else
 	{
 		$("#freq").val("");
 	}
-	if(sessionStorage.getItem("8bitCounter_module"))
+
+	if(sessionStorage.getItem("siso_module"))
 	{
-		$("#counter").attr("checked", true);
+		$("#sisomod").attr("checked", true);
 		obj.toolbox.push({
-			"type":"8bitCounter"
+			"type":"SISO 3-Register"
 		});
 	}
 
-	if(sessionStorage.getItem("8bitRingCounter_module"))
+	if(sessionStorage.getItem("piso_module"))
 	{
-		$("#ringcounter").attr("checked", true);
+		$("#pisomod").attr("checked", true);
 		obj.toolbox.push({
-			"type":"8BitRingCounter"
+			"type":"PISO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("pipo_module"))
+	{
+		$("#pipomod").attr("checked", true);
+		obj.toolbox.push({
+			"type":"PIPO 3-Register"
+		});
+	}
+
+	if(sessionStorage.getItem("sipo_module"))
+	{
+		$("#sipomod").attr("checked", true);
+		obj.toolbox.push({
+			"type":"SIPO 3-Register"
 		});
 	}
 
@@ -531,31 +757,62 @@ else{
 }
 
 
-$("#counter").change(function(event) {
+
+
+
+$("#sisomod").change(function(event) {
 	if(this.checked)
 	{
-		sessionStorage.setItem("8bitCounter_module",1);
+		sessionStorage.setItem("siso_module",1);
 	}
 	else
 	{
-		sessionStorage.removeItem("8bitCounter_module");
+		sessionStorage.removeItem("siso_module");
+		
 	}
 });
 
-$("#ringcounter").change(function(event) {
+$("#sipomod").change(function(event) {
 	if(this.checked)
 	{
-		sessionStorage.setItem("8bitRingCounter_module",1);
+		sessionStorage.setItem("sipo_module",1);
 	}
 	else
 	{
-		sessionStorage.removeItem("8bitRingCounter_module");
+		sessionStorage.removeItem("sipo_module");
+		
 	}
 });
 
-$("#load_counter").click(function(event) {
-	sessionStorage.setItem("8bitCounter",1);
-	sessionStorage.removeItem("8bitRingCounter");
+$("#pisomod").change(function(event) {
+	if(this.checked)
+	{
+		sessionStorage.setItem("piso_module",1);
+	}
+	else
+	{
+		sessionStorage.removeItem("piso_module");
+		
+	}
+});
+
+$("#pipomod").change(function(event) {
+	if(this.checked)
+	{
+		sessionStorage.setItem("pipo_module",1);
+	}
+	else
+	{
+		sessionStorage.removeItem("pipo_module");
+		
+	}
+});
+
+
+
+$("#load_siso").click(function(event) {
+	sessionStorage.setItem("siso",1);
+	sessionStorage.removeItem("sipo");
 	sessionStorage.removeItem("piso");
 	sessionStorage.removeItem("pipo");
 
@@ -563,9 +820,9 @@ $("#load_counter").click(function(event) {
 	location.reload();
 });
 
-$("#load_rcounter").click(function(event) {
-	sessionStorage.setItem("8bitRingCounter",1);
-	sessionStorage.removeItem("8bitCounter");
+$("#load_sipo").click(function(event) {
+	sessionStorage.setItem("sipo",1);
+	sessionStorage.removeItem("siso");
 	sessionStorage.removeItem("piso");
 	sessionStorage.removeItem("pipo");
 
@@ -575,8 +832,8 @@ $("#load_rcounter").click(function(event) {
 $("#load_piso").click(function(event) {
 
 	sessionStorage.setItem("piso",1);
-	sessionStorage.removeItem("8bitCounter");
-	sessionStorage.removeItem("8bitRingCounter");
+	sessionStorage.removeItem("siso");
+	sessionStorage.removeItem("sipo");
 	sessionStorage.removeItem("pipo");
 	location.reload();
 });
@@ -584,15 +841,26 @@ $("#load_piso").click(function(event) {
 $("#load_pipo").click(function(event) {
 
 	sessionStorage.setItem("pipo",1);
-	sessionStorage.removeItem("8bitCounter");
-	sessionStorage.removeItem("8bitRingCounter");
+	sessionStorage.removeItem("siso");
+	sessionStorage.removeItem("sipo");
 	sessionStorage.removeItem("piso");
 	location.reload();
 });
 
+$("#load_bishift").click(function(event) {
+	sessionStorage.setItem("bi-shift",1);
+	sessionStorage.removeItem("siso");
+	sessionStorage.removeItem("sipo");
+	sessionStorage.removeItem("piso");
+	sessionStorage.removeItem("pipo");
+
+
+	location.reload();
+});
+
 $("#clear_workspace").click(function(event) {
-	sessionStorage.removeItem("8bitRingCounter");
-	sessionStorage.removeItem("8bitCounter");
+	sessionStorage.removeItem("sipo");
+	sessionStorage.removeItem("siso");
 	sessionStorage.removeItem("piso");
 	sessionStorage.removeItem("pipo");
 	location.reload();
