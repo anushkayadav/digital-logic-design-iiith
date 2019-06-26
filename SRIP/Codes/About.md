@@ -26,7 +26,7 @@ The input to NOT gate-
 
 	- 0- Intially, to load parallel data into each FF.
 	- 1- To shift 
-	![Image](https://github.com/anushkayadav/digital-logic-design-iiith/blob/master/SRIP/Codes/images/piso.png?raw=true)
+![Image](https://github.com/anushkayadav/digital-logic-design-iiith/blob/master/SRIP/Codes/images/piso.png?raw=true)
 
 
 ### PIPO - Parallel In Parallel Out
